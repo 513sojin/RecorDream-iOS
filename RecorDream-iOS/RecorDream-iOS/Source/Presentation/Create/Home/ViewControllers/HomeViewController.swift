@@ -12,14 +12,16 @@ import Then
 class HomeViewController: BaseViewController {
 
     let headerView = HomeHeaderView()
+    let emptyRecorDreamView = EmptyRecorDreamView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
+        emptyRecorDreamView.setUserName("소진")
     }
     
     override func setHierarchy() {
-        view.addSubview(headerView)
+        view.addSubviews(headerView, emptyRecorDreamView)
     }
     
     private func setupConstraints() {
@@ -27,7 +29,11 @@ class HomeViewController: BaseViewController {
             make.height.equalTo(68)
             make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
         }
-
+        
+        emptyRecorDreamView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
     }
 
 }
