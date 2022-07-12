@@ -1,30 +1,27 @@
 //
-//  EmptyRecorDreamView.swift
+//  HomeUserNameView.swift
 //  RecorDream-iOS
 //
-//  Created by Sojin Lee on 2022/07/11.
+//  Created by Sojin Lee on 2022/07/12.
 //
 
 import UIKit
-import SnapKit
-import Then
 
-class EmptyRecorDreamView: BaseView {
+class HomeUserNameView: BaseView {
     var userName: String? {
         didSet {
-            setLabel()
+            setBoldLabelText()
         }
     }
     
     lazy var welcomeLabel = UILabel().then {
-        $0.text = "반가워요, \(userName ?? "")님!\n꿈의 기록을 채워주세요."
         $0.font = .systemFont(ofSize: 24, weight: .ultraLight)
         $0.textAlignment = .center
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setLabel()
+        setBoldLabelText()
     }
     
     override func setupView() {
@@ -37,7 +34,7 @@ class EmptyRecorDreamView: BaseView {
         }
     }
     
-    func setLabel() {
+    func setBoldLabelText() {
         guard let label = welcomeLabel.text else { return }
         var userNameCount: Int
         if let count = userName?.count {
@@ -45,6 +42,7 @@ class EmptyRecorDreamView: BaseView {
         } else {
             userNameCount = 8
         }
+        
         let attributedStr = NSMutableAttributedString(string: label)
         attributedStr.addAttribute(.font, value: UIFont.systemFont(ofSize: 24, weight: .heavy), range: NSRange.init(location: 0, length: userNameCount))
         welcomeLabel.numberOfLines = 0
@@ -54,5 +52,9 @@ class EmptyRecorDreamView: BaseView {
     func setUserName(_ name: String ) {
         welcomeLabel.text = "반가워요, \(name)님!\n꿈의 기록을 채워주세요."
         userName = name
+    }
+    
+    func setWelcomLabel() {
+        welcomeLabel.textAlignment = .left
     }
 }
