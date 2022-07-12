@@ -10,6 +10,7 @@ import Then
 import SnapKit
 
 class HomeHeaderView: BaseView {
+    // MARK: - Properties
     let logo = UIImageView().then {
         $0.image = Constant.Image.icnRDSmallLogo
     }
@@ -28,6 +29,7 @@ class HomeHeaderView: BaseView {
         $0.addArrangedSubviews(searchButton, profileButton)
     }
     
+    // MARK: - Functions
     override func setupView() {
         addSubviews(logo,iconStackView)
     }
