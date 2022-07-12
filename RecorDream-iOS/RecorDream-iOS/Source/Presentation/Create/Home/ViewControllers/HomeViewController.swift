@@ -13,11 +13,12 @@ class HomeViewController: BaseViewController {
 
     let headerView = HomeHeaderView()
     let emptyRecorDreamView = EmptyRecorDreamView()
+    let recorDreamView = RecorDreamView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
-        emptyRecorDreamView.setUserName("소진")
+        emptyRecorDreamView.setUserName("소진") // TODO: - user name 넣기
     }
     
     override func setHierarchy() {

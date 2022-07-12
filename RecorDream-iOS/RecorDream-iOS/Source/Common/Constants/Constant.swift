@@ -12,6 +12,6 @@ enum Constant {
         //navigation bar
         static let icnRDSmallLogo = UIImage(named: "RD_small_logo")
         static let icnSearch = UIImage(named: "search_icon")
-        static let icnProfile = UIImage(named: "profile_icon")
+        static let icnProfile = UIImage(named: "icn_mypage")
     }
 }
